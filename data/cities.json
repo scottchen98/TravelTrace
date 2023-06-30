@@ -1,0 +1,40 @@
+{
+  "cities": [
+    {
+      "cityName": "Rome",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2016-03-15T15:38:41.181Z",
+      "notes": "Fun 😃",
+      "position": {
+        "lat": "41.89329293324734",
+        "lng": "12.482941746711733"
+      },
+      "id": 1
+    },
+    {
+      "cityName": "Paris",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2020-05-30T15:40:23.348Z",
+      "notes": "Beautiful 🤩",
+      "position": {
+        "lat": "48.854359826358866",
+        "lng": "2.3467719554901127"
+      },
+      "id": 2
+    },
+    {
+      "cityName": "Toronto",
+      "country": "Canada",
+      "emoji": "🇨🇦",
+      "date": "2021-06-22T15:42:16.177Z",
+      "notes": "Multicultural 🌎",
+      "position": {
+        "lat": "43.653419351908035",
+        "lng": "-79.38392400741579"
+      },
+      "id": 3
+    }
+  ]
+}
