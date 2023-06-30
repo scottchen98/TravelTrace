@@ -9,7 +9,7 @@ export default function ProtectedRoute({ children }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuthenticated) navigate("/");
+    if (!isAuthenticated) navigate("/TravelTrace/");
   }, [isAuthenticated, navigate]);
 
   return isAuthenticated && children;

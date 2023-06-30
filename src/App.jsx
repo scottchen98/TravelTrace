@@ -24,12 +24,12 @@ export default function App() {
         <BrowserRouter>
           <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="product" element={<Product />} />
-              <Route path="pricing" element={<Pricing />} />
-              <Route path="login" element={<Login />} />
+              <Route path="/TravelTrace" element={<Homepage />} />
+              <Route path="TravelTrace/product" element={<Product />} />
+              <Route path="TravelTrace/pricing" element={<Pricing />} />
+              <Route path="TravelTrace/login" element={<Login />} />
               <Route
-                path="app"
+                path="TravelTrace/app"
                 element={
                   <ProtectedRoute>
                     <AppLayout />

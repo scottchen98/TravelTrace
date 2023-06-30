@@ -7,7 +7,7 @@ import {
 } from "react";
 import PropTypes from "prop-types";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://travel-trace-json-server.vercel.app";
 const CitiesContext = createContext();
 
 const initialState = {
@@ -101,7 +101,7 @@ function CitiesProvider({ children }) {
 
   async function createCity(newCity) {
     dispatch({ type: "cities/loading" });
-
+    console.log("BEFORE", newCity);
     try {
       const response = await fetch(`${BASE_URL}/cities`, {
         method: "POST",
@@ -111,6 +111,7 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await response.json();
+      console.log("YOOO", data);
 
       dispatch({ type: "city/created", payload: data });
     } catch (error) {

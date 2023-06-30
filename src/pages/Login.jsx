@@ -21,7 +21,7 @@ export default function Login() {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/app", { replace: true });
+      navigate("/TravelTrace/app", { replace: true });
     }
   }, [navigate, isAuthenticated]);
 

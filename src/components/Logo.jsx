@@ -3,10 +3,10 @@ import styles from "./Logo.module.css";
 
 function Logo() {
   return (
-    <Link to="/">
-      <img src="/icon.png" alt="globe icon" className={styles.icon} />
+    <Link to="/TravelTrace/">
+      <img src="icon.png" alt="globe icon" className={styles.icon} />
       <img
-        src="/traveltrace.png"
+        src="traveltrace.png"
         alt="TravelTrace logo"
         className={styles.logo}
       />

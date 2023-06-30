@@ -17,7 +17,7 @@ export default function Homepage() {
           unforgettable memories and allowing you to share your remarkable
           global odyssey with friends.
         </h2>
-        <Link to="/login" className="cta">
+        <Link to="/TravelTrace/login" className="cta">
           Start tracking now
         </Link>
       </section>

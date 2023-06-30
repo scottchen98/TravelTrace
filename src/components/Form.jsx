@@ -78,7 +78,7 @@ function Form() {
     };
 
     await createCity(newCity);
-    navigate("/app/cities");
+    navigate("/TravelTrace/app/cities");
   }
 
   if (isLoadingGeocoding) return <Spinner />;
