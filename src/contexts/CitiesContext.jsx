@@ -7,7 +7,7 @@ import {
 } from "react";
 import PropTypes from "prop-types";
 
-const BASE_URL = "https://travel-trace-json-server.vercel.app";
+const BASE_URL = "https://traveltrace-json-server.vercel.app";
 const CitiesContext = createContext();
 
 const initialState = {
