@@ -1,6 +1,6 @@
 # 🌎 TravelTrace
 
-TravelTrace is a captivating and user-friendly application built using React. Designed for passionate travelers, it allows users to effortlessly keep track of the places they have visited and create a visual representation of their global adventures on an interactive world map.
+TravelTrace is a captivating and user-friendly application built using React and powered by Supabase. Designed for passionate travelers, it allows users to effortlessly keep track of the places they have visited and create a visual representation of their global adventures on an interactive world map.
 
 Users can mark their visited destinations on the map by simply tapping on the desired location. Each marked spot represents a significant place they have explored, etching unforgettable memories of their journeys.
 
