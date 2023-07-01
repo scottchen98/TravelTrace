@@ -11,7 +11,7 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 export default function CityItem({ city }) {
-  const { id, cityName, emoji, date, position } = city;
+  const { id, city_name: cityName, emoji, date, position } = city;
   const { currentCity, deleteCity } = useCities();
 
   function handleClick(e) {
@@ -42,7 +42,7 @@ CityItem.propTypes = {
   city: PropTypes.shape({
     id: PropTypes.number.isRequired,
     country: PropTypes.string.isRequired,
-    cityName: PropTypes.string.isRequired,
+    city_name: PropTypes.string.isRequired,
     emoji: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     notes: PropTypes.string.isRequired,

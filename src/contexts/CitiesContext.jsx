@@ -7,7 +7,10 @@ import {
 } from "react";
 import PropTypes from "prop-types";
 
-const BASE_URL = "https://traveltrace-json-server.vercel.app";
+import { createClient } from "@supabase/supabase-js";
+const supabaseUrl = "https://fzouqeqlynrbcbnulyby.supabase.co";
+const supabase = createClient(supabaseUrl, import.meta.env.VITE_SUPABASE_KEY);
+
 const CitiesContext = createContext();
 
 const initialState = {
@@ -63,8 +66,7 @@ function CitiesProvider({ children }) {
       dispatch({ type: "cities/loading" });
 
       try {
-        const response = await fetch(`${BASE_URL}/cities`);
-        const data = await response.json();
+        const { data } = await supabase.from("cities").select("*");
 
         dispatch({ type: "cities/loaded", payload: data });
       } catch (error) {
@@ -85,10 +87,10 @@ function CitiesProvider({ children }) {
       dispatch({ type: "cities/loading" });
 
       try {
-        const response = await fetch(`${BASE_URL}/cities/${id}`);
-        const data = await response.json();
+        // data we got back is in an array, so we need to get the first element
+        const { data } = await supabase.from("cities").select("*").eq("id", id);
 
-        dispatch({ type: "city/loaded", payload: data });
+        dispatch({ type: "city/loaded", payload: data[0] });
       } catch (error) {
         dispatch({
           type: "rejected",
@@ -101,19 +103,26 @@ function CitiesProvider({ children }) {
 
   async function createCity(newCity) {
     dispatch({ type: "cities/loading" });
-    console.log("BEFORE", newCity);
-    try {
-      const response = await fetch(`${BASE_URL}/cities`, {
-        method: "POST",
-        body: JSON.stringify(newCity),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await response.json();
-      console.log("YOOO", data);
 
-      dispatch({ type: "city/created", payload: data });
+    try {
+      const { cityName, country, emoji, date, notes, position } = newCity;
+
+      // data we got back is in an array, so we need to get the first element
+      const { data } = await supabase
+        .from("cities")
+        .insert([
+          {
+            city_name: cityName,
+            country,
+            emoji,
+            date,
+            notes,
+            position: { lat: position.lat, lng: position.lng },
+          },
+        ])
+        .select();
+
+      dispatch({ type: "city/created", payload: data[0] });
     } catch (error) {
       dispatch({
         type: "rejected",
@@ -126,9 +135,9 @@ function CitiesProvider({ children }) {
     dispatch({ type: "cities/loading" });
 
     try {
-      await fetch(`${BASE_URL}/cities/${id}`, {
-        method: "DELETE",
-      });
+      const { error } = await supabase.from("cities").delete().eq("id", id);
+
+      if (error) throw new Error(error.message);
 
       dispatch({ type: "city/deleted", payload: id });
     } catch (error) {

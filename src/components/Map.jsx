@@ -57,13 +57,14 @@ export default function Map() {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         {cities.map((city) => {
-          const { lat, lng } = city.position;
+          const { id, city_name: cityName, emoji, position } = city;
+          const { lat, lng } = position;
 
           return (
-            <Marker key={city.id} position={[lat, lng]}>
+            <Marker key={id} position={[lat, lng]}>
               <Popup>
-                <span>{city.emoji}</span>
-                <span>{city.cityName}</span>
+                <span>{emoji}</span>
+                <span>{cityName}</span>
               </Popup>
             </Marker>
           );
